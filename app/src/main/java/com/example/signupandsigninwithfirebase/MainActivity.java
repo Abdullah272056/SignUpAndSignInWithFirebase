@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,12 +39,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.signInButtonId:
+                signIn();
                 break;
             case R.id.signUpTextViewId:
                 Intent intent=new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
                 finish();
                 break;
+        }
+    }
+
+    private void signIn() {
+        String signInEmail= signInEmailEditText.getText().toString().trim();
+        String signInPassword= signInPasswordEditText.getText().toString().trim();
+        if (TextUtils.isEmpty(signInEmail)){
+            signInEmailEditText.setError("Enter your email");
+            signInEmailEditText.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(signInEmail).matches()){
+            signInEmailEditText.setError("Enter a valid  email address");
+            signInEmailEditText.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(signInPassword)){
+            signInPasswordEditText.setError("Enter  password");
+            signInPasswordEditText.requestFocus();
+            return;
+        }
+        if (signInPassword.length()<6){
+            signInPasswordEditText.setError("Minimum length of a password should be 6");
+            signInPasswordEditText.requestFocus();
+            return;
         }
     }
 }
