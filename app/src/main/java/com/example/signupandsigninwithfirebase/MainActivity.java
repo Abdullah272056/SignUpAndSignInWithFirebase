@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText signInEmailEditText,signInPasswordEditText;
     Button signInButton;
     TextView signUpTextView;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextId);
         signInButton=findViewById(R.id.signInButtonId);
         signUpTextView=findViewById(R.id.signUpTextViewId);
+
 
         // listener set
         signInButton.setOnClickListener(this);

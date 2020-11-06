@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     Button signUpButton;
     TextView signInTextView;
     private FirebaseAuth mAuth;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         signUpPasswordEditText=findViewById(R.id.signUpPasswordEditTextId);
         signUpButton=findViewById(R.id.signUpButtonId);
         signInTextView=findViewById(R.id.signInTextViewId);
+        progressBar=findViewById(R.id.signUpProgressBarId);
 
         // listener set
         signUpButton.setOnClickListener(this);
@@ -82,10 +85,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             signUpPasswordEditText.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword( signUpEmail,signUpPassword)
                 .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task){
+                        progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Register is successful", Toast.LENGTH_SHORT).show();
                         } else {
