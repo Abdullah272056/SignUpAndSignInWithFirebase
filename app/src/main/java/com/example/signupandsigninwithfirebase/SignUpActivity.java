@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.signUpButtonId:
-
+                userRegister();
 
                 break;
             case R.id.signInTextViewId:
@@ -42,6 +44,29 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
+
+    private void userRegister() {
+        String signUpEmail= signUpEmailEditText.getText().toString().trim();
+        String signUpPassword= signUpPasswordEditText.getText().toString().trim();
+        if (TextUtils.isEmpty(signUpEmail)){
+            signUpEmailEditText.setError("Enter your email");
+            signUpEmailEditText.requestFocus();
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(signUpEmail).matches()){
+            signUpEmailEditText.setError("Enter a valid  email address");
+            signUpEmailEditText.requestFocus();
+        }
+        if (TextUtils.isEmpty(signUpPassword)){
+            signUpPasswordEditText.setError("Enter  password");
+            signUpPasswordEditText.requestFocus();
+        }
+        if (signUpPassword.length()<6){
+            signUpPasswordEditText.setError("Minimum length of a password should be 6");
+            signUpPasswordEditText.requestFocus();
+        }
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
