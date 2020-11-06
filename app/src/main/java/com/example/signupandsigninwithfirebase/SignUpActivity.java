@@ -3,11 +3,12 @@ package com.example.signupandsigninwithfirebase;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     EditText signUpEmailEditText,signUpPasswordEditText;
     Button signUpButton;
     TextView signInTextView;
@@ -20,5 +21,10 @@ public class SignUpActivity extends AppCompatActivity {
         signUpPasswordEditText=findViewById(R.id.signUpPasswordEditTextId);
         signUpButton=findViewById(R.id.signUpButtonId);
         signInTextView=findViewById(R.id.signInTextViewId);
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }
