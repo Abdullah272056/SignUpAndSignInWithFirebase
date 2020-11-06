@@ -96,10 +96,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "Login not Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                            startActivity(intent);
 
+                        } else {
+                            Toast.makeText(MainActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
                         }
 
                     }
