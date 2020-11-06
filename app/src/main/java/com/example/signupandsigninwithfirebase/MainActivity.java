@@ -22,10 +22,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextId);
         signInButton=findViewById(R.id.signInButtonId);
         signUpTextView=findViewById(R.id.signUpTextViewId);
+
+        // listener set
+        signInButton.setOnClickListener(this);
+        signUpTextView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-       
+        switch (v.getId()){
+            case R.id.signInButtonId:
+                break;
+            case R.id.signUpTextViewId:
+               
+                break;
+        }
     }
 }
