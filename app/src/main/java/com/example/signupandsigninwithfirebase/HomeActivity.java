@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class HomeActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
+public class HomeActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -27,9 +31,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.signOutItemId){
+            FirebaseAuth.getInstance().signOut();
+            Intent intent =new Intent( HomeActivity.this,MainActivity.class);
+            startActivity(intent);
 
-
-            
         }
 
 
