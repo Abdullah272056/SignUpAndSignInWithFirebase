@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextId);
         signInButton=findViewById(R.id.signInButtonId);
         signUpTextView=findViewById(R.id.signUpTextViewId);
+        progressBar=findViewById(R.id.signInProgressBarId);
 
 
         // listener set
@@ -73,5 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             signInPasswordEditText.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
+        
+        // add sign In function
+
+
+        progressBar.setVisibility(View.GONE);
     }
 }
