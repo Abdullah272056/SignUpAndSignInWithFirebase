@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             Intent intent=new Intent(MainActivity.this,HomeActivity.class);
                             startActivity(intent);
+                            finish();
 
                         } else {
                             Toast.makeText(MainActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
