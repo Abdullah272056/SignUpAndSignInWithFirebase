@@ -2,6 +2,7 @@ package com.example.signupandsigninwithfirebase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,10 +22,22 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         signUpPasswordEditText=findViewById(R.id.signUpPasswordEditTextId);
         signUpButton=findViewById(R.id.signUpButtonId);
         signInTextView=findViewById(R.id.signInTextViewId);
+
+        // listener set
+        signUpButton.setOnClickListener(this);
+        signInTextView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        
+        switch (v.getId()) {
+            case R.id.signUpButtonId:
+
+
+                break;
+            case R.id.signInTextViewId:
+
+                break;
+        }
     }
 }
