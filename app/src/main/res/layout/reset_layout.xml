@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:id="@+id/resetEmailEditTextId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -38,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/resetPassCancelButtonId"
             android:textColor="#000000"
             android:padding="10dp"
             android:layout_margin="10dp"
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <Button
+            android:id="@+id/resetPassOkButtonId"
             android:textColor="#000000"
             android:padding="10dp"
             android:layout_margin="10dp"
