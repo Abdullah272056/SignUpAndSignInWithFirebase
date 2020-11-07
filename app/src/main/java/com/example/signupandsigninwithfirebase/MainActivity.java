@@ -1,8 +1,10 @@
 package com.example.signupandsigninwithfirebase;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -61,6 +63,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent=new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.resetPasswordTextViewId:
+                EditText resetMail=new EditText(MainActivity.this);
+                final AlertDialog.Builder resetAlertDialog=new AlertDialog.Builder(MainActivity.this);
+                resetAlertDialog.setTitle("Reset Password?");
+                resetAlertDialog.setMessage("Enter your email to receive reset link");
+                resetAlertDialog.setView(resetMail);
+                resetAlertDialog.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // extract email and send reset link
+                    }
+                });
+                resetAlertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        
+                    }
+                });
+                resetAlertDialog.show();
                 break;
         }
     }
