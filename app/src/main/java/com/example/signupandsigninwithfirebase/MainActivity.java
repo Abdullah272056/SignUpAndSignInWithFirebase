@@ -69,9 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.resetPasswordTextViewId:
                 final EditText resetMailEditText=new EditText(MainActivity.this);
                 final AlertDialog.Builder resetAlertDialog=new AlertDialog.Builder(MainActivity.this);
-                resetAlertDialog.setTitle("Reset Password?");
-                resetAlertDialog.setMessage("Enter your email to receive reset link");
-                resetAlertDialog.setView(resetMailEditText);
+                final AlertDialog alertDialog   = resetAlertDialog.create();
+                alertDialog.setTitle("Reset Password?");
+                alertDialog.setMessage("Enter your email to receive reset link");
+                alertDialog.setView(resetMailEditText);
+                alertDialog.setCancelable(false);
                 resetAlertDialog.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
-                resetAlertDialog.show();
+                alertDialog.show();
                 break;
         }
     }

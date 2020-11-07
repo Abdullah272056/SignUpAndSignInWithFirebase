@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:paddingLeft="15dp"
+        android:textSize="30sp"
+        android:text="Reset Password ?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:text="Enter your email to receive reset link."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="Enter email address"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:textColor="#000000"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:text="Cancel"
+            android:textSize="25sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:textColor="#000000"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:text="Ok"
+            android:textSize="25sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>
