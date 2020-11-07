@@ -22,8 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText signInEmailEditText,signInPasswordEditText;
     Button signInButton;
-    TextView signUpTextView;
+    TextView signUpTextView,resetPasswordTextView;
     ProgressBar progressBar;
+
 
     private FirebaseAuth mAuth;
     @Override
@@ -40,12 +41,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextId);
         signInButton=findViewById(R.id.signInButtonId);
         signUpTextView=findViewById(R.id.signUpTextViewId);
+        resetPasswordTextView=findViewById(R.id.resetPasswordTextViewId);
         progressBar=findViewById(R.id.signInProgressBarId);
 
 
         // listener set
         signInButton.setOnClickListener(this);
         signUpTextView.setOnClickListener(this);
+        resetPasswordTextView.setOnClickListener(this);
     }
 
     @Override
