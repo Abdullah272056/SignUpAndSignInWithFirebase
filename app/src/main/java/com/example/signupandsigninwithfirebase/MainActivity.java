@@ -162,7 +162,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Toast.makeText(MainActivity.this, "please verify your email address.", Toast.LENGTH_LONG).show();
                             }
 
-                        } else {
+                        }
+                        else if (mAuth.getCurrentUser()==null){
+                            Toast.makeText(MainActivity.this, "have't account. please create your account", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
                             Toast.makeText(MainActivity.this, "error: "+task.getException().toString(), Toast.LENGTH_LONG).show();
                         }
                     }
