@@ -159,11 +159,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(intent);
                                 finish();
                             }else {
-                                Toast.makeText(MainActivity.this, "please verify your email address", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "please verify your email address.", Toast.LENGTH_LONG).show();
                             }
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Login Unsuccessful"+task.getException().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "error: "+task.getException().toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
