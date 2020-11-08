@@ -93,9 +93,25 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task){
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
-                            Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
-                            startActivity(intent);
-                            finish();
+
+                            mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(SignUpActivity.this, "Register Successful. \n" +
+                                                "Please check your email for verification!", Toast.LENGTH_SHORT).show();
+//                                        Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
+//                                        startActivity(intent);
+//                                        finish();
+                                    }else {
+                                        Toast.makeText(SignUpActivity.this, "error:"+task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+
+
+
                            // Toast.makeText(SignUpActivity.this, "Register is successful", Toast.LENGTH_SHORT).show();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
