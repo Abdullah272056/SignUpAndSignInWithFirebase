@@ -100,9 +100,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                     if (task.isSuccessful()){
                                         Toast.makeText(SignUpActivity.this, "Register Successful. \n" +
                                                 "Please check your email for verification!", Toast.LENGTH_SHORT).show();
-//                                        Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
-//                                        startActivity(intent);
-//                                        finish();
+                                        Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }else {
                                         Toast.makeText(SignUpActivity.this, "error:"+task.getException().toString(), Toast.LENGTH_SHORT).show();
                                     }

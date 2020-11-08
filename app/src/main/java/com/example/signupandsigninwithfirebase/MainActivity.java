@@ -154,11 +154,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
-                            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-                            startActivity(intent);
-                            finish();
+                            if (mAuth.getCurrentUser().isEmailVerified()){
+                                Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else {
+                                Toast.makeText(MainActivity.this, "please verify your email address", Toast.LENGTH_SHORT).show();
+                            }
+
                         } else {
-                            Toast.makeText(MainActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Login Unsuccessful"+task.getException().toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
