@@ -49,6 +49,10 @@ public class HomeActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(HomeActivity.this, "Your Account delete successful", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(HomeActivity.this,MainActivity.class);
+                                startActivity(intent);
+                                finish();
+
                             }else {
                                 Toast.makeText(HomeActivity.this, "Your Account delete not successful", Toast.LENGTH_SHORT).show();
 
