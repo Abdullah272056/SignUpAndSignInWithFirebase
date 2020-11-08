@@ -109,10 +109,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                                 }
                             });
-
-
-
-                           // Toast.makeText(SignUpActivity.this, "Register is successful", Toast.LENGTH_SHORT).show();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                 Toast.makeText(SignUpActivity.this, "User is already Registered", Toast.LENGTH_SHORT).show();
